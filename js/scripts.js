@@ -28,19 +28,18 @@
 //                               '</div>' +
 //                             '</div>');
 //});
-//  $("form#new-contact").submit(function(event) {
+//  $("form#new-place").submit(function(event) {
 ///    event.preventDefault();
 
-//    var inputtedFirstName = $("input#new-first-name").val();
-//    var inputtedLastName = $("input#new-last-name").val();
+//    var inputtedPlaceLocation = $("input#new-place-location").val();
 
-//    var newContact = new Contact(inputtedFirstName, inputtedLastName);
+//    var newPlace = new Place(inputtedPLaceLocation);
 
-//    $(".new-address").each(function() {
-//   var inputtedStreet = $(this).find("input.new-street").val();
-//   var inputtedCity = $(this).find("input.new-city").val();
-//   var inputtedState = $(this).find("input.new-state").val();
-//   newContact.addresses.push(newAddress)
+//    $(".new-attribute").each(function() {
+//   var inputtedLandmark = $(this).find("input.new-landmark").val();
+//   var inputtedWeather = $(this).find("input.new-weather").val();
+//   var inputtedNotes = $(this).find("input.new-notes").val();
+//   newPlace.attributes.push(newAttribute)
  //});
 
 //    $("ul#contacts").append("<li><span class='contact'>" + newContact.firstName + " " + newContact.lastName + "</span></li>");
