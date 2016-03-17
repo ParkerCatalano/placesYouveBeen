@@ -12,31 +12,52 @@
       <h1>Locations Around the World</h1>
 
       <div class="row">
+
         <div class="col-md-6">
-          <h2>Add a Place You've Been To</h2>
+          <h2>Add a Place You've Been To:</h2>
           <form id="new-place">
             <div class="form-group">
-              <label for="new-placeLocation">Location</label>
-              <input type="text" class="form-control" id="new-placeLocation">
+              <label for="new-place-location">Location</label>
+              <input type="text" class="form-control" id="new-place-location">
             </div>
-            <div id="place-attributes">
-              <div class="new-landmark">
+            <div id="new-attributes">
+              <div class="new-address">
                 <div class="form-group">
-                  <label for="new-landmark">Landmark</label>
-                  <input type="text" class="form-control" id="new-placeLandmark">
+                  <label for="new-place-landmark">Landmark</label>
+                  <input type="text" class="form-control" id="new-place-landmark">
+                <div class="form-group">
+                  <label for="new-place-season">Season</label>
+                  <input type="text" class="form-control new-place-season">
+                </div>
+                <div class="form-group">
+                  <label for="new-place-notes">Notes</label>
+                  <input type="text" class="form-control new-place-notes">
                 </div>
               </div>
-
             </div>
-            <span class="btn btn-primary" id= "add-location">Another Location</span>
+
+            <span class="btn btn-primary" id="add-address">Another Place</span>
+
             <button type="submit" class="btn">Add</button>
           </form>
 
-          <h2>Places:</h2>
-          <ul id="placesYouveBeen">
+          <h2>Place:</h2>
+          <ul id="placeAttributes">
 
           </ul>
         </div>
+
+        <div class="col-md-6">
+          <div id="show-place">
+            <h2></h2>
+            <p>Place Name: <span class="new-place-location"></span></p>
+            <p>Attributes:</p>
+            <ul id="attributes">
+
+            </ul>
+          </div>
+        </div>
+
       </div>
     </div>
   </body>
