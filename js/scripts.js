@@ -1,67 +1,30 @@
-//Business Logic\\
-
-function Place(location, landmark, season, notes) {
-  this.placeLocation = location;
-  this.placeLandmark = landmark;
-  this.placeSeason = season;
-  this.placeNotes = notes;
-}
-
-Place.prototype.placeAttributes = function() {
-  return this.placeLocation + " " + this.placeLandmark;  // body...
-};
-
-//User Interface Logic//
-$(document).ready(function() {
-  $("form#new-place").submit(function(event) {
-    event.preventDefault();
-
-  var inputtedPlaceLocation = $("input#new-placeLocation").val();
-
-  var newPlace = new Place(inputtedPlaceLocation);
-
-
-  $("ul#placesYouveBeen").append("<li><span class='place'>" + newPlace.placeAttributes() + "</span></li>");
-
-  $(".place").last().click(function() {
-    $("#placesYouveBeen").show();
-    $("#placesYouveBeen").text(newPlace.placeLocation);
-    $("#placesYouveBeen").text(newPlace.placeLandmark);
-
-  })
-
-  })
-})
-
-
 //business logic
-//function Contact(first, last) {
-  //this.firstName = first;
-  //this.lastName = last;
-  //this.addresses = [];
-//}
-//function Address(street, city, state) {
-  //this.street = street;
-  //this.city = city;
-  //this.state = state;
-//}
+  function Place(location) {
+    this.location = location;
+    this.attributes = [];
+  }
+  function Attributes(landmark, season, notes) {
+    this.landmark = landmark;
+    this.season = season;
+    this.notes = notes;
+  }
 
 // user interface logic
-//$(document).ready(function() {
+  $(document).ready(function() {
 
-  //$("#add-address").click(function() {
-//  $("#new-addresses").append('<div class="new-address">' +
+  /$("#add-attributes").click(function() {
+//  $("#new-attributes").append('<div class="new-attribute">' +
 //                               '<div class="form-group">' +
-//                                 '<label for="new-street">Street</label>' +
-//                                 '<input type="text" class="form-control new-street">' +
+//                                 '<label for="new-landmark">Landmark</label>' +
+//                                 '<input type="text" class="form-control new-landmark">' +
 //                               '</div>' +
 //                               '<div class="form-group">' +
-//                                 '<label for="new-city">City</label>' +
-//                                 '<input type="text" class="form-control new-city">' +
+//                                 '<label for="new-weather">Weather</label>' +
+//                                 '<input type="text" class="form-control new-weather">' +
 //                               '</div>' +
 //                               '<div class="form-group">' +
-//                                 '<label for="new-state">State</label>' +
-//                                 '<input type="text" class="form-control new-state">' +
+//                                 '<label for="new-notes">Notes</label>' +
+//                                 '<input type="text" class="form-control new-notes">' +
 //                               '</div>' +
 //                             '</div>');
 //});
