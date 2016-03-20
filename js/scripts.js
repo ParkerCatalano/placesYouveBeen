@@ -1,66 +1,62 @@
 //business logic
-function Contact(first, last) {
-  this.firstName = first;
-  this.lastName = last;
-  this.addresses = [];
+function Place(location) {
+  this.placeLocation = location;
+  this.attributes = [];
 }
-function Address(street, city, state) {
-  this.street = street;
-  this.city = city;
-  this.state = state;
+function Attribute(landmark, weather, notes) {
+  this.landmark = landmark;
+  this.weather = weather;
+  this.notes = notes;
 }
 
 // user interface logic
 $(document).ready(function() {
 
-  $("#add-address").click(function() {
-  $("#new-addresses").append('<div class="new-address">' +
+  $("#add-attribute").click(function() {
+  $("#new-attributes").append('<div class="new-attribute">' +
                                '<div class="form-group">' +
-                                 '<label for="new-street">Street</label>' +
-                                 '<input type="text" class="form-control new-street">' +
+                                 '<label for="new-landmark">Landmark</label>' +
+                                 '<input type="text" class="form-control new-landmark">' +
                                '</div>' +
                                '<div class="form-group">' +
-                                 '<label for="new-city">City</label>' +
-                                 '<input type="text" class="form-control new-city">' +
+                                 '<label for="new-weather">Weather</label>' +
+                                 '<input type="text" class="form-control new-weather">' +
                                '</div>' +
                                '<div class="form-group">' +
-                                 '<label for="new-state">State</label>' +
-                                 '<input type="text" class="form-control new-state">' +
+                                 '<label for="new-notes">Notes</label>' +
+                                 '<input type="text" class="form-control new-notes">' +
                                '</div>' +
                              '</div>');
 });
-  $("form#new-contact").submit(function(event) {
+  $("form#new-place").submit(function(event) {
     event.preventDefault();
 
-    var inputtedFirstName = $("input#new-first-name").val();
-    var inputtedLastName = $("input#new-last-name").val();
+    var inputtedPlace = $("input#new-place-location").val();
 
-    var newContact = new Contact(inputtedFirstName, inputtedLastName);
+    var newPlace = new Place(inputtedPlace);
 
-    $(".new-address").each(function() {
-   var inputtedStreet = $(this).find("input.new-street").val();
-   var inputtedCity = $(this).find("input.new-city").val();
-   var inputtedState = $(this).find("input.new-state").val();
-   var newAddress = new Address(inputtedStreet, inputtedCity, inputtedState)
-   newContact.addresses.push(newAddress)
+    $(".new-attribute").each(function() {
+   var inputtedLandmark = $(this).find("input.new-landmark").val();
+   var inputtedWeather = $(this).find("input.new-weather").val();
+   var inputtedNotes = $(this).find("input.new-notes").val();
+   var newAttribute = new Attribute(inputtedLandmark, inputtedWeather, inputtedNotes)
+   newPlace.attributes.push(newAttribute)
  });
 
-    $("ul#contacts").append("<li><span class='contact'>" + newContact.firstName + " " + newContact.lastName + "</span></li>");
+    $("ul#places").append("<li><span class='place'>" newPlace.placeLocation"</span></li>");
 
 
-    $(".contact").last().click(function() {
-      $("#show-contact").show();
-      $("#show-contact h2").text(newContact.firstName);
-      $(".first-name").text(newContact.firstName);
-      $(".last-name").text(newContact.lastName);
-      $("ul#addresses").text("");
-newContact.addresses.forEach(function(address) {
-  $("ul#addresses").append("<li>" + address.street + ", " + address.city + " " + address.state + "</li>");
+    $(".place").last().click(function() {
+      $("#show-place").show();
+      $("#show-place h2").text(newPlace.placeLocation);
+      $(".new-place").text(newPlace.placeLocation);
+      $("ul#attributes").text("");
+newPlace.attributes.forEach(function(attribute) {
+  $("ul#attributes").append("<li>" + attribute.landmark + ", " + attribute.weather + " " + attribute.notes + "</li>");
 });
     });
 
-    $("input#new-first-name").val("");
-    $("input#new-last-name").val("");
+    $("input#new-place").val("");
 
   });
 });
