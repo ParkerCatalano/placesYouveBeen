@@ -43,10 +43,11 @@ $(document).ready(function() {
    newPlace.attributes.push(newAttribute)
  });
 
-    $("ul#places").append("<li><span class='place'>" newPlace.placeLocation"</span></li>");
+    $("ul#places").append("<li><span class='place'>" + newPlace.placeLocation +"</span></li>");
 
 
-    $(".place").last().click(function() {
+
+    $("#places").last().click(function() {
       $("#show-place").show();
       $("#show-place h2").text(newPlace.placeLocation);
       $(".new-place").text(newPlace.placeLocation);
