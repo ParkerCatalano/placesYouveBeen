@@ -1,62 +1,66 @@
 //business logic
-  function Place(location) {
-    this.location = location;
-    this.attributes = [];
-  }
-  function Attributes(landmark, season, notes) {
-    this.landmark = landmark;
-    this.season = season;
-    this.notes = notes;
-  }
+function Contact(first, last) {
+  this.firstName = first;
+  this.lastName = last;
+  this.addresses = [];
+}
+function Address(street, city, state) {
+  this.street = street;
+  this.city = city;
+  this.state = state;
+}
 
 // user interface logic
-  $(document).ready(function() {
+$(document).ready(function() {
 
-    $("#add-attributes").click(function() {
-    $("#new-attributes").append('<div class="new-attribute">' +
-                                 '<div class="form-group">' +
-                                   '<label for="new-landmark">Landmark</label>' +
-                                   '<input type="text" class="form-control new-landmark">' +
-                                 '</div>' +
-                                 '<div class="form-group">' +
-                                   '<label for="new-weather">Weather</label>' +
-                                   '<input type="text" class="form-control new-weather">' +
-                                 '</div>' +
-                                 '<div class="form-group">' +
-                                   '<label for="new-notes">Notes</label>' +
-                                   '<input type="text" class="form-control new-notes">' +
-                                 '</div>' +
-                               '</div>');
-  });
-    $("form#new-place").submit(function(event) {
-      event.preventDefault();
+  $("#add-address").click(function() {
+  $("#new-addresses").append('<div class="new-address">' +
+                               '<div class="form-group">' +
+                                 '<label for="new-street">Street</label>' +
+                                 '<input type="text" class="form-control new-street">' +
+                               '</div>' +
+                               '<div class="form-group">' +
+                                 '<label for="new-city">City</label>' +
+                                 '<input type="text" class="form-control new-city">' +
+                               '</div>' +
+                               '<div class="form-group">' +
+                                 '<label for="new-state">State</label>' +
+                                 '<input type="text" class="form-control new-state">' +
+                               '</div>' +
+                             '</div>');
+});
+  $("form#new-contact").submit(function(event) {
+    event.preventDefault();
 
-      var inputtedPlaceLocation = $("input#new-place-location").val();
+    var inputtedFirstName = $("input#new-first-name").val();
+    var inputtedLastName = $("input#new-last-name").val();
 
-      var newPlace = new Place(inputtedPlaceLocation);
+    var newContact = new Contact(inputtedFirstName, inputtedLastName);
 
-      $(".new-attribute").each(function() {
-     var inputtedLandmark = $(this).find("input.new-landmark").val();
-     var inputtedWeather = $(this).find("input.new-weather").val();
-     var inputtedNotes = $(this).find("input.new-notes").val();
-     newPlace.attributes.push(newAttribute)
-  });
+    $(".new-address").each(function() {
+   var inputtedStreet = $(this).find("input.new-street").val();
+   var inputtedCity = $(this).find("input.new-city").val();
+   var inputtedState = $(this).find("input.new-state").val();
+   var newAddress = new Address(inputtedStreet, inputtedCity, inputtedState)
+   newContact.addresses.push(newAddress)
+ });
 
-     $("ul#attributes").append("<li><span class='new-place-location'>" + newPlace.location + " " + newPlace.attributes + "</span></li>");
+    $("ul#contacts").append("<li><span class='contact'>" + newContact.firstName + " " + newContact.lastName + "</span></li>");
 
 
-      $(".attributes").last().click(function() {
-        $("#show-place").show();
-        $("#show-place h2").text(newPlace.location);
-        $(".new-place-location").text(newPlace.location);
-        $(".new-place-landmark").text(newPlace.landmark);
-        $("ul#addresses").text("");
-  newPlace.location.forEach(function(place) {
-    $("ul#attributes").append("<li>" + attribute.landmark + attribute.season + attribute.notes + "</li>");
-  });
-      });
-
-      $("input#new-place-location").val("");
-
+    $(".contact").last().click(function() {
+      $("#show-contact").show();
+      $("#show-contact h2").text(newContact.firstName);
+      $(".first-name").text(newContact.firstName);
+      $(".last-name").text(newContact.lastName);
+      $("ul#addresses").text("");
+newContact.addresses.forEach(function(address) {
+  $("ul#addresses").append("<li>" + address.street + ", " + address.city + " " + address.state + "</li>");
+});
     });
+
+    $("input#new-first-name").val("");
+    $("input#new-last-name").val("");
+
   });
+});
