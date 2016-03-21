@@ -53,7 +53,7 @@ $(document).ready(function() {
       $(".new-place").text(newPlace.placeLocation);
       $("ul#attributes").text("");
 newPlace.attributes.forEach(function(attribute) {
-  $("ul#attributes").append("<li>" + attribute.landmark + ", " + attribute.weather + " " + attribute.notes + "</li>");
+  $("ul#attributes").append("<li>" + attribute.landmark + "</li>" + "<li>" + attribute.weather + "</li>" + "<li>" + attribute.notes + "</li>");
 });
     });
 
